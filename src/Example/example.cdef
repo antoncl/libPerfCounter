@@ -1,0 +1,23 @@
+:
+; this is an example of an counter definition file
+:
+provider Example
+{
+	application	Example.exe
+	uuid		0bdf484e-973f-4366-921b-f7d153d673f1
+
+	counterset	ExampleSet
+	{
+		uuid		b931d041-a47d-45ac-a348-36242a74b817
+		description	"Counter set for the example."
+		name		"Example set"
+
+		counter		Count
+		{
+			id			1
+			name		"Count"
+			description	"This counter is incremented by one every second"
+			type		Counter32
+		}
+	}
+}

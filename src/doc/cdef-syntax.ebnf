@@ -1,0 +1,27 @@
+; http://www.bottlecaps.de/rr/ui
+
+PROVIDER ::= 'provider' CNAME '{' '\n' ('application' EXECUTABLE '\n'| 'uuid' UUID '\n' | COUNTERSET)+ '}' '\n'
+
+COUNTERSET ::= 'counterset' CNAME '{' '\n' ('uuid' UUID '\n'|'description' QSTRING '\n' | COUNTER)+ '}' '\n'
+
+COUNTER ::= 'counter' CNAME '{' '\n' ('id' UINTEGER '\n'|'name' QSTRING '\n'|'description' QSTRING '\n'|'type' ('Counter32'|'Gauge32'|'Gauge64') '\n')+ '}' '\n'
+
+UUID ::= HEX4 HEX4 '-' HEX4 '-' '4' HEX3 '-' SHEX HEX3 '-' HEX4 HEX4 HEX4
+
+QSTRING ::= '"' ([^\"]|'\\'|'\"')* '"'
+
+EXECUTABLE ::= ('.'|CChar)+
+
+CNAME ::= CChar+
+
+CCHAR ::= [A-Za-z0-9_]
+
+UINTEGER ::= [0-9]+
+
+HEX4 ::= HEX HEX HEX HEX
+
+HEX3 ::= HEX HEX HEX
+
+HEX ::= [a-fA-F0-9]
+
+SHEX ::= [89abAB]
